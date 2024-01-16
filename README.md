@@ -19,7 +19,9 @@ Default region name [None]: ap-northeast-1
 Default output format [None]: json
 
 aws configure list --profile dev-terraform
+```
 
+- Terraform実行
 ```
 # 初期設定
 cd dev
