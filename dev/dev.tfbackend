@@ -1,0 +1,7 @@
+bucket  = "dev-terraform-aws"
+region  = "ap-northeast-1"
+key     = "cmn-vpc/terraform.tfstate"
+profile = "dev-terraform"
+acl     = "bucket-owner-read"
+encrypt = true
+#    dynamodb_table = "cmn_ci_tfstate_lock"
