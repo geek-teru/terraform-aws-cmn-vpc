@@ -25,13 +25,13 @@ aws configure list --profile dev-terraform
 ```
 # 初期設定
 cd dev
-terraform init -backend-config="dev.tfbackend"
+terraform init -backend-config=dev.tfbackend
 
 # 適用
 terraform plan -var-file=dev.tfvars
 terraform apply -var-file=dev.tfvars
 
 # 削除
-terraform plan -destroy -var-file=tfvars/terraform.tfvars
-terraform destroy -var-file=tfvars/terraform.tfvars
+terraform plan -destroy -var-file=dev.tfvars
+terraform destroy -var-file=dev.tfvars
 ```
