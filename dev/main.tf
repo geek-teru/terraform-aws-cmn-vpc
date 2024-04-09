@@ -12,11 +12,14 @@ module "vpc" {
 
   #public subnet
   pub_subnet_config = var.cmn_pub_subnet_config
+
+  #private subnet
+  priv_subnet_config = var.cmn_priv_subnet_config
 }
 
 module "security-group" {
   source = "../modules/security-group"
 
-  vpc_id = module.vpc.cmn-vpc_id
+  vpc_id = module.vpc.vpc_id
   sg_config = var.sg_config
 }

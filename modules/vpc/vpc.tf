@@ -42,13 +42,13 @@ resource "aws_subnet" "pub_subnet" {
   }
 }
 
-resource "aws_route_table_association" "pub-rt-association" {
-  for_each = var.pub_subnet_config
-
-  subnet_id = aws_subnet.pub_subnet[each.key].id
-  route_table_id = aws_route_table.pub_rt.id
-}
-
-output "cmn-vpc_id" {
-  value = aws_vpc.cmn-vpc.id
+resource "aws_subnet" "priv_subnet" {
+  for_each = var.priv_subnet_config
+  vpc_id            = aws_vpc.cmn-vpc.id
+  availability_zone = each.value.az
+  cidr_block        = each.value.cidr
+  tags = {
+    Name       = each.key
+    managed_by = each.value.managed_by
+  }
 }

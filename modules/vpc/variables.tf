@@ -20,3 +20,7 @@ variable "pub_rt_config" {
 variable "pub_subnet_config" {
   type = map
 }
+
+variable "priv_subnet_config" {
+  type = map
+}
