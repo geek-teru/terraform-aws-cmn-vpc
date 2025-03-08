@@ -21,6 +21,11 @@ variable "cmn_pub_subnet_config" {
   type = map
 }
 
+# private subnet
+variable "cmn_priv_subnet_config" {
+  type = map
+}
+
 ############################
 # modules/securitygroup
 ############################

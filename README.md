@@ -9,29 +9,16 @@
 ![architecture_01](doc/architecture.drawio.png)
 
 ### 利用方法
-- AWSのプロファイルを設定する
+## Terraform手順
 ```
-aws configure --profile dev-terraform
+# AWS credential setting
+$ export AWS_ACCESS_KEY_ID=<your_access_key_id>
+$ export AWS_SECRET_ACCESS_KEY=<your_secret_access_key>
+$ export AWS_SESSION_TOKEN=<your_session_token>
 
-AWS Access Key ID [None]: xxxx
-AWS Secret Access Key [None]: xxxx
-Default region name [None]: ap-northeast-1
-Default output format [None]: json
-
-aws configure list --profile dev-terraform
-```
-
-- Terraform実行
-```
-# 初期設定
-cd dev
-terraform init -backend-config=dev.tfbackend
-
-# 適用
-terraform plan -var-file=dev.tfvars
-terraform apply -var-file=dev.tfvars
-
-# 削除
-terraform plan -destroy -var-file=dev.tfvars
-terraform destroy -var-file=dev.tfvars
+# Terraform apply
+$ docker compose run --rm terraform init
+$ docker compose run --rm terraform plan -var-file=dev.tfvars
+$ docker compose run --rm terraform apply -auto-approve -var-file=dev.tfvars
+$ docker compose run --rm terraform destroy -var-file=dev.tfvars
 ```
