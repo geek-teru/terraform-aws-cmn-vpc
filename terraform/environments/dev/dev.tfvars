@@ -22,7 +22,16 @@ cmn_pub_rt_config = {
 cmn_pub_subnet_config = {
   cmn-pub-subnet-a = { az = "ap-northeast-1a", cidr = "10.10.10.0/24", managed_by = "terraform"},
   cmn-pub-subnet-c = { az = "ap-northeast-1c", cidr = "10.10.20.0/24", managed_by = "terraform"}
+  cmn-pub-subnet-c = { az = "ap-northeast-1c", cidr = "10.10.21.0/24", managed_by = "terraform"},
+  cmn-pub-subnet-d = { az = "ap-northeast-1d", cidr = "10.10.31.0/24", managed_by = "terraform"}
 }
+
+cmn_priv_subnet_config = {
+  cmn-priv-subnet-a = { az = "ap-northeast-1a", cidr = "10.10.110.0/24", managed_by = "terraform"},
+  cmn-priv-subnet-c = { az = "ap-northeast-1c", cidr = "10.10.120.0/24", managed_by = "terraform"},
+  cmn-priv-subnet-d = { az = "ap-northeast-1d", cidr = "10.10.130.0/24", managed_by = "terraform"}
+}
+
 
 #security group
 # { nametag, port, source ip, managed_bytag }

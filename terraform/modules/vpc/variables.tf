@@ -1,6 +1,3 @@
-############################
-# modules/vpc
-############################
 # vpc
 variable "vpc_config" {
   type = map
@@ -18,5 +15,10 @@ variable "pub_rt_config" {
 
 # public subnet
 variable "pub_subnet_config" {
+  type = map
+}
+
+# private subnet
+variable "priv_subnet_config" {
   type = map
 }

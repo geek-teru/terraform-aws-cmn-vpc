@@ -2,7 +2,6 @@
 # Provider Settings
 # ----------------------------------------
 provider "aws" {
-  profile = "dev-terraform"
   region  = "ap-northeast-1"
 }
 
@@ -26,8 +25,17 @@ provider "aws" {
 
 terraform {
   required_version = ">= 1.5.0"
-
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.74.0"
+    }
+  }
   backend "s3" {
-    # prdとdevで異なるため、backend_configで指定する
+    bucket  = "dev-terraform-aws"
+    region  = "ap-northeast-1"
+    key     = "cmn-vpc/terraform.tfstate"
+    acl     = "bucket-owner-read"
+    encrypt = true
   }
 }
