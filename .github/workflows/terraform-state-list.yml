@@ -1,5 +1,5 @@
-name: terraform-apply
-run-name: terraform-apply - ${{ inputs.environment }}
+name: terraform-state-list
+run-name: terraform-state-list - ${{ inputs.environment }}
 
 on:
   workflow_dispatch:
