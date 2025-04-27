@@ -50,5 +50,5 @@ jobs:
         id: init
 
       - name: terraform state list
-        run: terraform stete list -no-color
+        run: terraform state list -no-color
         id: state-list
