@@ -19,8 +19,8 @@ permissions:
 
 jobs: 
   apply:
-    # only main branch
-    if: ${{ github.ref == 'refs/heads/main' }}
+    # only master branch
+    if: ${{ github.ref == 'refs/heads/master' }}
     
     runs-on: ubuntu-latest
     
