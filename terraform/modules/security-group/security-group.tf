@@ -1,6 +1,6 @@
 resource "aws_security_group" "sg" {
   for_each = { for i in var.sg_config : i.name => i }
-  name     = each.value.name
+  name     = "${var.env}-${var.sys_name}-${each.value.name}"
   vpc_id   = var.vpc_id
 
   dynamic "ingress" {

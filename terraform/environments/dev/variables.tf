@@ -30,7 +30,7 @@ variable "cmn_pub_subnet_config" {
 
 # private subnet
 variable "cmn_priv_subnet_config" {
-  type = map(any)
+  type    = map(any)
   default = {}
 }
 
@@ -38,7 +38,7 @@ variable "cmn_priv_subnet_config" {
 variable "sg_config" {
   type = list(any)
   default = [
-    { name = "dev_cmn_linux_sg", port = [22], src_ip = ["0.0.0.0/0"], managed_by = "terraform" },
-    { name = "dev_cmn_windows_sg", port = [3389], src_ip = ["0.0.0.0/0"], managed_by = "terraform" }
+    { name = "linux_sg", port = [22], src_ip = ["0.0.0.0/0"], managed_by = "terraform" },
+    { name = "windows_sg", port = [3389], src_ip = ["0.0.0.0/0"], managed_by = "terraform" }
   ]
 }
