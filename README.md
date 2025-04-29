@@ -29,27 +29,25 @@ $ export AWS_SESSION_TOKEN=<your_session_token>
 # plan
 $ docker compose run --rm terraform init
 $ docker compose run --rm terraform plan
+```
 
 ### デプロイ
 
-* GitHub Actionsでデプロイ
-リポジトリ > Actions > terraform-applyを実行する。
+- GitHub Actions でデプロイ
+  リポジトリ > Actions > terraform-apply を実行する。
 
-* ローカルからデプロイ
-上記の差分確認手順を実施したうえで、以下の手順でapplyする。
+- ローカルからデプロイ
+  上記の差分確認手順を実施したうえで、以下の手順で apply する。
 
 ```
-
 # apply
-
 $ docker compose run --rm terraform apply -auto-approve
-
 ```
 
 ### 削除
 
-* ローカルから削除
-上記の差分確認手順を実施したうえで、以下の手順で削除する。
+- ローカルから削除
+  上記の差分確認手順を実施したうえで、以下の手順で削除する。
 
 ```
 
@@ -63,4 +61,12 @@ $ docker compose run --rm terraform destroy -auto-approve
 
 ```
 
-```
+### 疎通確認
+
+- AWS マネジメントコンソールから、CloudShell で疎通確認すると踏み台要らずで便利
+
+1. VPC の情報を入力し CloudShell 環境の設定
+   ![screenshots_01](doc/screenshots_01.png)
+
+2. CloudShell 環境を立ち上げて ping や curl をたたく
+   ![screenshots_02](doc/screenshots_02.png)
