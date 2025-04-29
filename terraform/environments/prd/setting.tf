@@ -32,7 +32,7 @@ terraform {
     }
   }
   backend "s3" {
-    bucket  = "dev-terraform-aws"
+    bucket  = "prd-terraform-aws"
     region  = "ap-northeast-1"
     key     = "cmn-vpc/terraform.tfstate"
     acl     = "bucket-owner-read"

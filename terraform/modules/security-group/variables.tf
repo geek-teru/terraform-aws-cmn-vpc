@@ -6,5 +6,5 @@ variable "vpc_id" {
 }
 
 variable "sg_config" {
-  type = list
+  type = list(any)
 }
