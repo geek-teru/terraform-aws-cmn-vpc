@@ -54,5 +54,5 @@ jobs:
         id: validate
 
       - name: terraform destroy
-        run: terraform destroy -no-color
+        run: terraform destroy -auto-approve -no-color
         id: destroy
