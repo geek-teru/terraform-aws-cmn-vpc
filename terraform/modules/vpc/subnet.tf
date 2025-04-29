@@ -5,7 +5,7 @@ resource "aws_subnet" "pub_subnet" {
   availability_zone = each.value.az
   cidr_block        = each.value.cidr
   tags = {
-    Name       = each.key
+    Name       = "${var.env_name}-${var.sys_name}-public-${each.key}"
     managed_by = each.value.managed_by
   }
 }
@@ -17,7 +17,7 @@ resource "aws_subnet" "priv_subnet" {
   availability_zone = each.value.az
   cidr_block        = each.value.cidr
   tags = {
-    Name       = each.key
+    Name       = "${var.env_name}-${var.sys_name}-private-${each.key}"
     managed_by = each.value.managed_by
   }
 }

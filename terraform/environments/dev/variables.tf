@@ -16,7 +16,6 @@ variable "cmn_vpc_config" {
   type = map(any)
   default = {
     cidr       = "10.10.0.0/16",
-    name       = "dev-cmn-vpc",
     managed_by = "terraform"
   }
 }
