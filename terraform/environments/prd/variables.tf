@@ -15,7 +15,7 @@ data "aws_caller_identity" "current" {}
 variable "cmn_vpc_config" {
   type = map(any)
   default = {
-    cidr       = "10.10.0.0/16",
+    cidr       = "10.100.0.0/16",
     managed_by = "terraform"
   }
 }
@@ -24,14 +24,16 @@ variable "cmn_vpc_config" {
 variable "cmn_pub_subnet_config" {
   type = map(any)
   default = {
-    az-a = { az = "ap-northeast-1a", cidr = "10.10.10.0/24", managed_by = "terraform" }
+    az-a = { az = "ap-northeast-1a", cidr = "10.100.10.0/24", managed_by = "terraform" }
   }
 }
 
 # private subnet
 variable "cmn_priv_subnet_config" {
   type = map(any)
-  default = {}
+  default = {
+    az-a = { az = "ap-northeast-1a", cidr = "10.100.110.0/24", managed_by = "terraform" }
+  }
 }
 
 # securitygroup
