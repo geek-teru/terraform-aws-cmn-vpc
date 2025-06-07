@@ -8,15 +8,6 @@ on:
     paths:
       - 'terraform/**'
   workflow_dispatch:
-    inputs:
-      environment:
-        type: choice
-        description: 'target environment'
-        required: true
-        options:
-          - dev
-          - stg
-          - prd
 
 permissions:
   id-token: write
@@ -26,23 +17,13 @@ jobs:
   plan:
     runs-on: ubuntu-latest    
     
+    strategy:
+      matrix:
+        env: [dev, prd]
+
     defaults:
       run:
-        working-directory: terraform/environments/${{ inputs.environment }}
-    
-    # strategy:
-    #   matrix:
-    #     env:
-    #      - dev
-    #      - stg
-    #      - prd
-    #     include:
-    #       - env: dev
-    #         role_to_assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/${{ secrets.AWS_CICD_ROLE_NAME }}
-    #       - env: stg
-    #         role_to_assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/${{ secrets.AWS_CICD_ROLE_NAME }}
-    #       - env: prd
-    #         role_to_assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/${{ secrets.AWS_CICD_ROLE_NAME }}
+        working-directory: terraform/environments/${{ matrix.env }}
 
     env:
       AWS_REGION: ap-northeast-1
