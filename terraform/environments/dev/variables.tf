@@ -25,14 +25,17 @@ variable "cmn_pub_subnet_config" {
   type = map(any)
   default = {
     az-a = { az = "ap-northeast-1a", cidr = "10.10.10.0/24", managed_by = "terraform" }
-    az-c = { az = "ap-northeast-1c", cidr = "10.10.20.0/24", managed_by = "terraform" }
+    az-c = { az = "ap-northeast-1c", cidr = "10.10.11.0/24", managed_by = "terraform" }
   }
 }
 
 # private subnet
 variable "cmn_priv_subnet_config" {
-  type    = map(any)
-  default = {}
+  type = map(any)
+  default = {
+    az-a = { az = "ap-northeast-1a", cidr = "10.10.20.0/24", managed_by = "terraform" }
+    az-c = { az = "ap-northeast-1c", cidr = "10.10.21.0/24", managed_by = "terraform" }
+  }
 }
 
 # securitygroup
