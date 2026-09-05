@@ -3,6 +3,14 @@
 # ----------------------------------------
 provider "aws" {
   region = "ap-northeast-1"
+
+  default_tags {
+    tags = {
+      env          = var.env
+      service_name = var.service_name
+      terraform    = "true"
+    }
+  }
 }
 
 ####################################
@@ -32,6 +40,7 @@ terraform {
     }
   }
   backend "s3" {
+    # bucket / key はプロジェクトごとに変更する
     bucket  = "dev-terraform-aws"
     region  = "ap-northeast-1"
     key     = "cmn-vpc/terraform.tfstate"

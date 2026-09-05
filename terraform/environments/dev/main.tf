@@ -2,7 +2,7 @@ module "vpc" {
   source = "../../modules/vpc"
 
   env_name       = var.env
-  sys_name       = var.sys_name
+  service_name   = var.service_name
   aws_account_id = data.aws_caller_identity.current.account_id
 
   # vpc

@@ -15,8 +15,8 @@ permissions:
 
 jobs: 
   state-list:
-    # only master branch
-    if: ${{ github.ref == 'refs/heads/master' }}
+    # only default branch
+    if: ${{ github.ref == 'refs/heads/main' }}
     
     runs-on: ubuntu-latest
     
