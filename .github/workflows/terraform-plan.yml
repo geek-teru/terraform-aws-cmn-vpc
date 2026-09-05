@@ -4,7 +4,7 @@ run-name: terraform-plan
 on:
   pull_request:
     branches: 
-      - master
+      - main
     paths:
       - 'terraform/**'
   workflow_dispatch:
@@ -21,12 +21,14 @@ jobs:
       matrix:
         env: [dev, prd]
 
+    environment: ${{ matrix.env }}
+
     defaults:
       run:
         working-directory: terraform/environments/${{ matrix.env }}
 
     env:
-      AWS_REGION: ap-northeast-1
+      AWS_REGION: ${{ vars.AWS_REGION || 'ap-northeast-1' }}
 
     steps:
       - name: Checkout
@@ -38,9 +40,13 @@ jobs:
           role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/${{ secrets.AWS_CICD_ROLE_NAME }}
           aws-region: ${{ env.AWS_REGION }}
       
-      - uses: hashicorp/setup-terraform@v2
+      - name: Resolve Terraform version
+        id: terraform-version
+        run: echo "version=$(cat "$GITHUB_WORKSPACE/.terraform-version")" >> "$GITHUB_OUTPUT"
+
+      - uses: hashicorp/setup-terraform@v3
         with:
-          terraform_version: 1.6.6
+          terraform_version: ${{ steps.terraform-version.outputs.version }}
 
       - name: terraform fmt
         run: terraform fmt -check -recursive
