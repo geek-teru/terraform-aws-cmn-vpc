@@ -3,7 +3,7 @@ variable "env" {
   default = "prd"
 }
 
-variable "sys_name" {
+variable "service_name" {
   type    = string
   default = "cmn"
 }

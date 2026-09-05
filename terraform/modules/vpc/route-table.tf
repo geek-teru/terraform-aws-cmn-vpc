@@ -4,7 +4,7 @@ resource "aws_route_table" "pub_rtb" {
   vpc_id = aws_vpc.cmn-vpc.id
 
   tags = {
-    Name = "${var.env_name}-${var.sys_name}-pub-rtb"
+    Name = "${var.env_name}-${var.service_name}-pub-rtb"
   }
 }
 
@@ -33,7 +33,7 @@ resource "aws_route_table" "priv_rtb" {
   vpc_id   = aws_vpc.cmn-vpc.id
 
   tags = {
-    Name = "${var.env_name}-${var.sys_name}-priv-${each.value.az}-rtb"
+    Name = "${var.env_name}-${var.service_name}-priv-${each.value.az}-rtb"
   }
 }
 
