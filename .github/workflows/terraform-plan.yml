@@ -4,7 +4,7 @@ run-name: terraform-plan
 on:
   pull_request:
     branches: 
-      - master
+      - main
     paths:
       - 'terraform/**'
   workflow_dispatch:
